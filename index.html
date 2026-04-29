@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+  <!-- Navigation (visible only when authenticated) -->
+  <nav id="main-nav" class="hidden">
+    <a href="#products" class="nav-brand">Shop</a>
+    <button id="btn-logout">Logout</button>
+  </nav>
+
+  <!-- ── LOGIN ──────────────────────────────────────── -->
+  <section id="view-login" class="view">
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <h1>Welcome back</h1>
+        <p class="subtitle">Sign in to your account</p>
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="you@example.com"
+                   autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="••••••••"
+                   autocomplete="current-password" required>
+          </div>
+          <div class="checkbox-row">
+            <input type="checkbox" id="login-remember">
+            <label for="login-remember">Remember me</label>
+          </div>
+          <p class="error" id="login-error"></p>
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+        <div class="auth-footer">
+          Don't have an account? <a href="#register">Click here to register</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REGISTER ───────────────────────────────────── -->
+  <section id="view-register" class="view">
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <h1>Create account</h1>
+        <p class="subtitle">Join us today</p>
+        <form id="register-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reg-name">First name</label>
+              <input type="text" id="reg-name" placeholder="John"
+                     autocomplete="given-name" required>
+            </div>
+            <div class="form-group">
+              <label for="reg-surname">Last name</label>
+              <input type="text" id="reg-surname" placeholder="Doe"
+                     autocomplete="family-name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" placeholder="you@example.com"
+                   autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-password">Password</label>
+            <input type="password" id="reg-password" placeholder="Min. 8 characters"
+                   autocomplete="new-password" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-password2">Repeat password</label>
+            <input type="password" id="reg-password2" placeholder="Repeat password"
+                   autocomplete="new-password" required>
+          </div>
+          <p class="error" id="reg-error"></p>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <div class="auth-footer">
+          Already have an account? <a href="#login">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUCTS LIST ──────────────────────────────── -->
+  <section id="view-products" class="view">
+    <div class="products-page">
+      <div class="products-toolbar">
+        <input type="text" id="products-search" class="search-input"
+               placeholder="Search products…">
+        <select id="products-sort" class="sort-select">
+          <option value="">Default order</option>
+          <option value="name_asc">Name A–Z</option>
+          <option value="name_desc">Name Z–A</option>
+          <option value="price_asc">Price: Low to High</option>
+          <option value="price_desc">Price: High to Low</option>
+        </select>
+      </div>
+      <div id="products-grid" class="products-grid"></div>
+      <div class="pagination">
+        <button id="btn-prev" class="btn btn-ghost">← Prev</button>
+        <span class="page-info" id="page-info">Page 1</span>
+        <button id="btn-next" class="btn btn-ghost">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUCT DETAIL ─────────────────────────────── -->
+  <section id="view-product" class="view">
+    <div class="product-detail-page">
+      <div class="product-detail-back">
+        <a href="#products" class="btn btn-ghost">← Back to products</a>
+      </div>
+      <div id="product-detail-content"></div>
+    </div>
+  </section>
+
+  <!-- ── 404 ────────────────────────────────────────── -->
+  <section id="view-404" class="view">
+    <div class="not-found-page">
+      <div class="not-found-code">404</div>
+      <h2 class="not-found-title">Page not found</h2>
+      <p class="not-found-sub">The page you're looking for doesn't exist.</p>
+      <a href="#products" class="btn btn-primary" style="max-width:200px;">Go to Shop</a>
+    </div>
+  </section>
+
+  <script src="config.js"></script>
+  <script src="script/api.js"></script>
+  <script src="script/auth.js"></script>
+  <script src="script/products.js"></script>
+  <script src="script/product.js"></script>
+  <script src="script/script.js"></script>
+</body>
+</html>
