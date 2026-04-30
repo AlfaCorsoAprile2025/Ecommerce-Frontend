@@ -102,6 +102,8 @@
           <option value="price_asc">Price: Low to High</option>
           <option value="price_desc">Price: High to Low</option>
         </select>
+        <button id="btn-my-products" class="btn btn-ghost btn-toolbar hidden">I miei prodotti</button>
+        <button id="btn-add-product" class="btn btn-primary btn-toolbar hidden">+ Aggiungi prodotto</button>
       </div>
       <div id="products-grid" class="products-grid"></div>
       <div class="pagination">
@@ -131,6 +133,49 @@
       <a href="#products" class="btn btn-primary" style="max-width:200px;">Go to Shop</a>
     </div>
   </section>
+
+  <!-- ── PRODUCT MODAL ──────────────────────────────── -->
+  <div id="product-modal" class="modal-overlay" aria-modal="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Aggiungi prodotto</h2>
+        <button class="modal-close" id="modal-close" aria-label="Chiudi">&times;</button>
+      </div>
+      <form id="product-form" novalidate>
+        <div class="form-group">
+          <label for="modal-name">Nome <span class="required-star">*</span></label>
+          <input type="text" id="modal-name" placeholder="Nome prodotto" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modal-price">Prezzo <span class="required-star">*</span></label>
+            <input type="number" id="modal-price" placeholder="0.00" min="0" step="0.01" required>
+          </div>
+          <div class="form-group">
+            <label for="modal-stock">Quantità in stock</label>
+            <input type="number" id="modal-stock" placeholder="0" min="0" step="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="modal-category">Categoria</label>
+          <input type="text" id="modal-category" placeholder="Es. Elettronica">
+        </div>
+        <div class="form-group">
+          <label for="modal-imageurl">URL immagine</label>
+          <input type="text" id="modal-imageurl" placeholder="https://…">
+        </div>
+        <div class="form-group">
+          <label for="modal-description">Descrizione</label>
+          <textarea id="modal-description" placeholder="Descrizione prodotto…" rows="3"></textarea>
+        </div>
+        <p class="error" id="modal-error"></p>
+        <div class="modal-actions">
+          <button type="button" id="modal-cancel" class="btn btn-ghost">Annulla</button>
+          <button type="submit" id="modal-submit" class="btn btn-primary btn-toolbar">Salva</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script src="config.js"></script>
   <script src="script/api.js"></script>

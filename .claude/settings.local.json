@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"C:\\\\\\\\Users\\\\\\\\d.amati\\\\\\\\Desktop\\\\\\\\Lezioni Alfa\\\\\\\\biblioteca\\\\\\\\Progetto_riqualificazione_AMATI2026\\\\\\\\Ecommerce-Frontend\" -type f -name \"*.js\" -o -name \"*.json\")"
+    ]
+  }
+}

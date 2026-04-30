@@ -70,6 +70,15 @@ function createApi() {
     getProduct: function(id) {
       return request('GET', '/catalog/products/' + id, null, true);
     },
+    createProduct: function(data) {
+      return request('POST', '/catalog/products', data, true);
+    },
+    updateProduct: function(id, data) {
+      return request('PUT', '/catalog/products/' + id, data, true);
+    },
+    deleteProduct: function(id) {
+      return request('DELETE', '/catalog/products/' + id, null, true);
+    },
     setToken: function(token) {
       localStorage.setItem('authToken', token);
     },
@@ -89,6 +98,26 @@ function createApi() {
 }
 
 const Api = createApi();
+
+function getUserId() {
+  try {
+    const token = localStorage.getItem('authToken');
+    if (!token) return null;
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload.sub || payload.id || payload.userId || payload.user_id || null;
+  } catch (e) { return null; }
+}
+
+function getUserRoles() {
+  try {
+    const token = localStorage.getItem('authToken');
+    if (!token) return [];
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const raw = payload.roles || payload.role || payload.authorities || payload.permissions || [];
+    const arr = Array.isArray(raw) ? raw : [raw];
+    return arr.map(function(r) { return String(r).toUpperCase(); });
+  } catch (e) { return []; }
+}
 
 function escHtml(str) {
   return String(str)

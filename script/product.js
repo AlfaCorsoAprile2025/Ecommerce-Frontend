@@ -23,8 +23,8 @@ function renderProductDetail(p) {
   }
 
   let stockBadge;
-  if (p.stockquantity > 0) {
-    stockBadge = `<span class="badge badge-stock" style="font-size:0.875rem;padding:0.3rem 0.75rem;">In stock: ${p.stockquantity}</span>`;
+  if (p.stock_quantity > 0) {
+    stockBadge = `<span class="badge badge-stock" style="font-size:0.875rem;padding:0.3rem 0.75rem;">In stock: ${p.stock_quantity}</span>`;
   } else {
     stockBadge = `<span class="badge badge-out" style="font-size:0.875rem;padding:0.3rem 0.75rem;">Out of stock</span>`;
   }
