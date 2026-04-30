@@ -4,7 +4,7 @@ async function initProduct(id) {
 
   try {
     const product = await Api.getProduct(id);
-    renderProductDetail(product);
+    renderProductDetail(product.data);
   } catch (err) {
     if (err && err.status === 404) {
       location.hash = '#404';

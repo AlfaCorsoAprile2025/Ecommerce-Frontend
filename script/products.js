@@ -24,6 +24,8 @@ function initProducts() {
     changePage(ProductsState.page + 1);
   };
 
+  document.getElementById('btn-my-orders').classList.remove('hidden');
+
   if (ProductsState.sellerFilter) {
     document.getElementById('btn-my-products').classList.add('btn-ghost-active');
   }
