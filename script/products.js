@@ -25,6 +25,9 @@ function initProducts() {
   };
 
   document.getElementById('btn-my-orders').classList.remove('hidden');
+  document.getElementById('btn-my-orders').onclick = function() {
+    location.hash = '#orders';
+  };
 
   if (ProductsState.sellerFilter) {
     document.getElementById('btn-my-products').classList.add('btn-ghost-active');

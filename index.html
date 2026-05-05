@@ -115,6 +115,41 @@
     </div>
   </section>
 
+
+  <!-- ── ORDERS LIST ──────────────────────────────── -->
+  <section id="view-orders" class="view">
+    <div class="orders-page">
+      <div class="orders-toolbar">
+        <input type="text" id="orders-search" class="search-input"
+               placeholder="Cerca ordini…">
+        <select id="orders-status" class="sort-select">
+          <option value="">Tutti gli status</option>
+          <option value="PENDING">Pending</option>
+          <option value="PAYMENT_FAILED">Payment Failed</option>
+          <option value="CONFIRMED">Confirmed</option>
+          <option value="PROCESSING">Processing</option>
+          <option value="SHIPPED">Shipped</option>
+          <option value="DELIVERED">Delivered</option>
+          <option value="CANCELLED">Cancelled</option>
+          <option value="REFUNDED">Refunded</option>
+        </select>
+        <select id="orders-sort" class="sort-select">
+          <option value="">Ordine predefinito</option>
+          <option value="name_asc">Nome A–Z</option>
+          <option value="name_desc">Nome Z–A</option>
+          <option value="date_asc">Data: prima i più vecchi</option>
+          <option value="date_desc">Data: prima i più recenti</option>
+        </select>
+      </div>
+      <div id="orders-grid" class="orders-grid"></div>
+      <div class="pagination">
+        <button id="orders-btn-prev" class="btn btn-ghost">← Prev</button>
+        <span class="page-info" id="orders-page-info">Page 1</span>
+        <button id="orders-btn-next" class="btn btn-ghost">Next →</button>
+      </div>
+    </div>
+  </section>
+
   <!-- ── PRODUCT DETAIL ─────────────────────────────── -->
   <section id="view-product" class="view">
     <div class="product-detail-page">
@@ -184,6 +219,8 @@
   <script src="script/auth.js"></script>
   <script src="script/products.js"></script>
   <script src="script/product.js"></script>
+  <script src="script/orders.js"></script>
+  <script src="script/order.js"></script>
   <script src="script/script.js"></script>
 </body>
 </html>

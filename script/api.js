@@ -70,6 +70,13 @@ function createApi() {
     getProduct: function(id) {
       return request('GET', '/catalog/products/' + id, null, true);
     },
+    getOrders: function(params) {
+      const qs = new URLSearchParams(params).toString();
+      return request('GET', '/orders' + (qs ? '?' + qs : ''), null, true);
+    },
+    getOrder: function(id) {
+      return request('GET', '/orders/' + id, null, true);
+    },
     createProduct: function(data) {
       return request('POST', '/catalog/products', data, true);
     },
