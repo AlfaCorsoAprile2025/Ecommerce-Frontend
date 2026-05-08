@@ -63,6 +63,9 @@ function createApi() {
     register: function(firstName, lastName, email, password) {
       return request('POST', '/auth/register', { firstName: firstName, lastName: lastName, email: email, password: password }, false);
     },
+    verifyOtp: function(email, otp) {
+      return request('POST', '/auth/verify-otp', { email: email, otp: otp }, false);
+    },
     getProducts: function(params) {
       const qs = new URLSearchParams(params).toString();
       return request('GET', '/catalog/products' + (qs ? '?' + qs : ''), null, true);

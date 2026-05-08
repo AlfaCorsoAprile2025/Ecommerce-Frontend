@@ -1,9 +1,10 @@
 const ROUTES = {
-  '#login':    { view: 'view-login',    init: initLogin,    auth: false },
-  '#register': { view: 'view-register', init: initRegister, auth: false },
-  '#products': { view: 'view-products', init: initProducts, auth: true  },
-  '#orders':   { view: 'view-orders',   init: initOrders,   auth: true  },
-  '#404':      { view: 'view-404',      init: function() {}, auth: false },
+  '#login':       { view: 'view-login',       init: initLogin,       auth: false },
+  '#register':    { view: 'view-register',    init: initRegister,    auth: false },
+  '#verify-otp':  { view: 'view-verify-otp',  init: initVerifyOtp,   auth: false },
+  '#products':    { view: 'view-products',    init: initProducts,    auth: true  },
+  '#orders':      { view: 'view-orders',      init: initOrders,      auth: true  },
+  '#404':         { view: 'view-404',         init: function() {},   auth: false },
 };
 
 function showView(viewId) {

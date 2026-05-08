@@ -67,11 +67,49 @@ async function handleRegisterSubmit(e) {
 
   try {
     await Api.register(name, surname, email, password);
-    location.hash = '#login';
+    sessionStorage.setItem('pendingEmail', email);
+    location.hash = '#verify-otp';
   } catch (err) {
     errorEl.textContent = err.message || 'Registration failed.';
   } finally {
     btn.disabled = false;
     btn.textContent = 'Register';
+  }
+}
+
+function initVerifyOtp() {
+  document.getElementById('otp-form').onsubmit = handleOtpSubmit;
+}
+
+async function handleOtpSubmit(e) {
+  e.preventDefault();
+  const errorEl = document.getElementById('otp-error');
+  errorEl.textContent = '';
+
+  const email = sessionStorage.getItem('pendingEmail');
+  const otp   = document.getElementById('otp-code').value.trim();
+
+  if (!email) {
+    errorEl.textContent = 'Sessione scaduta. Ripeti la registrazione.';
+    return;
+  }
+  if (!otp || otp.length !== 6) {
+    errorEl.textContent = 'Inserisci un codice a 6 cifre.';
+    return;
+  }
+
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Verifica in corso…';
+
+  try {
+    await Api.verifyOtp(email, otp);
+    sessionStorage.removeItem('pendingEmail');
+    location.hash = '#login';
+  } catch (err) {
+    errorEl.textContent = err.message || 'Codice non valido.';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Verifica';
   }
 }

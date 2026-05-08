@@ -89,6 +89,28 @@
     </div>
   </section>
 
+  <!-- ── VERIFY OTP ───────────────────────────────── -->
+  <section id="view-verify-otp" class="view">
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <h1>Verifica email</h1>
+        <p class="subtitle">Inserisci il codice a 6 cifre inviato alla tua email</p>
+        <form id="otp-form" novalidate>
+          <div class="form-group">
+            <label for="otp-code">Codice OTP</label>
+            <input type="text" id="otp-code" placeholder="123456"
+                   maxlength="6" autocomplete="one-time-code" required>
+          </div>
+          <p class="error" id="otp-error"></p>
+          <button type="submit" class="btn btn-primary">Verifica</button>
+        </form>
+        <div class="auth-footer">
+          Hai già un account? <a href="#login">Accedi</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── PRODUCTS LIST ──────────────────────────────── -->
   <section id="view-products" class="view">
     <div class="products-page">
